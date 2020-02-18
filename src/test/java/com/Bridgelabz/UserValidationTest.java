@@ -104,4 +104,17 @@ public class UserValidationTest {
         boolean result = userValidator.validateMobileNumber("356 916724909685");
         Assert.assertEquals(false, result);
     }
+
+    //    Test cases for Password (Rule1)
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        boolean result = userValidator.validatePasswordRule1("pranavige");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenCharactersAreLessThanEight_ShouldReturnFrue() {
+        boolean result = userValidator.validatePasswordRule1("pra");
+        Assert.assertEquals(false, result);
+    }
 }

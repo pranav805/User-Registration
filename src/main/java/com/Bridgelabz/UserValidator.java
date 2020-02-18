@@ -23,6 +23,10 @@ public class UserValidator {
                                         "[ ]{1}" +
                                         "[0-9]{10}$";
 
+//    Pattern for Password (Rule 1)
+    private final String PASSWORD_PATTERN_RULE1="^[a-zA-Z]{8,}$";
+
+
     public boolean validateFirstName(String fName){
         return fName.matches(NAME_PATTERN);
     }
@@ -37,5 +41,9 @@ public class UserValidator {
 
     public boolean validateMobileNumber(String mobileNumber) {
         return mobileNumber.matches(MOBILE_PATTERN);
+    }
+
+    public boolean validatePasswordRule1(String password1) {
+        return password1.matches(PASSWORD_PATTERN_RULE1);
     }
 }
