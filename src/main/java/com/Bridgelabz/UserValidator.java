@@ -24,12 +24,16 @@ public class UserValidator {
                                         "[0-9]{10}$";
 
 //    Pattern for Password Rule 1: Minimum 8 chracters
-    private final String PASSWORD_PATTERN_RULE1="^[a-zA-Z]{8,}$";
+    private final String PASSWORD_PATTERN_RULE1="^[a-z]{8,}$";
 
 //    Pattern for Password Rule 2: At least 1 upper case
-    private final String PASSWORD_PATTERN_RULE2="(?=.*[A-Z]).[A-Za-z]{7,}$";
+    private final String PASSWORD_PATTERN_RULE2="^(?=.*[A-Z]).[A-Za-z]{7,}$";
 
-    private final String PASSWORD_PATTERN_RULE3="((?=.*\\d)(?=.*[A-Z])[A-Za-z].{6,})";
+//    Pattern for Password Rule 3: At least 1 numeric number
+private final String PASSWORD_PATTERN_RULE3="^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{8,}$";
+
+//  Pattern for Password Rule 4: Exactly one special character
+ private final String PASSWORD_PATTERN_RULE4= "((?=.*[@#$%!])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,})";
 
 
     public boolean validateFirstName(String fName){
@@ -58,5 +62,9 @@ public class UserValidator {
 
     public boolean validatePasswordRule3(String password3) {
         return password3.matches(PASSWORD_PATTERN_RULE3);
+    }
+
+    public boolean validatePasswordRule4(String password4) {
+        return password4.matches(PASSWORD_PATTERN_RULE4);
     }
 }
