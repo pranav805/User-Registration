@@ -105,9 +105,9 @@ public class UserValidationTest {
         Assert.assertEquals(false, result);
     }
 
-    //    Test cases for Password (Rule1)
+    //    Test cases for Password (Rule 1)
     @Test
-    public void givenPassword_WhenProper_ShouldReturnTrue() {
+    public void givenPasswordRule1_WhenProper_ShouldReturnTrue() {
         boolean result = userValidator.validatePasswordRule1("pranavige");
         Assert.assertEquals(true, result);
     }
@@ -115,6 +115,19 @@ public class UserValidationTest {
     @Test
     public void givenPassword_WhenCharactersAreLessThanEight_ShouldReturnFrue() {
         boolean result = userValidator.validatePasswordRule1("pra");
+        Assert.assertEquals(false, result);
+    }
+
+    //    Test cases for Password (Rule 2)
+    @Test
+    public void givenPasswordRule2_WhenProper_ShouldReturnTrue() {
+        boolean result = userValidator.validatePasswordRule2("pranavIge");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordRule2_WhenNoUpperCaseLetter_ShouldReturnFalse() {
+        boolean result = userValidator.validatePasswordRule2("pranavige");
         Assert.assertEquals(false, result);
     }
 }
