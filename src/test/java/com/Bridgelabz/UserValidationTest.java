@@ -79,4 +79,29 @@ public class UserValidationTest {
         boolean result = userValidator.validateEMail("pranav805.ige96@gmail.com");
         Assert.assertEquals(false, result);
     }
+
+    //    Test cases for Mobile number
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+        boolean result = userValidator.validateMobileNumber("356 9167249096");
+        Assert.assertEquals(true, result);
+    }
+    
+    @Test
+    public void givenMobileNumber_WhenNoSpace_ShouldReturnFalse() {
+        boolean result = userValidator.validateMobileNumber("3569167249096");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenNoCountryCode_ShouldReturnFalse() {
+        boolean result = userValidator.validateMobileNumber("9167249096");
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenNumberOfDigitsIsNotTen_ShouldReturnFalse() {
+        boolean result = userValidator.validateMobileNumber("356 916724909685");
+        Assert.assertEquals(false, result);
+    }
 }

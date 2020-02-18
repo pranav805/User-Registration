@@ -18,6 +18,11 @@ public class UserValidator {
                                         "[.][A-Za-z]{2,4}" +
                                         "([.][A-Za-z]{2,4}+)?$";
 
+//    Pattern for Mobile number
+    private final String MOBILE_PATTERN="^[0-9]{3}" +
+                                        "[ ]{1}" +
+                                        "[0-9]{10}$";
+
     public boolean validateFirstName(String fName){
         return fName.matches(NAME_PATTERN);
     }
@@ -28,5 +33,9 @@ public class UserValidator {
 
     public boolean validateEMail(String EMail) {
         return EMail.matches(EMAIL_PATTERN);
+    }
+
+    public boolean validateMobileNumber(String mobileNumber) {
+        return mobileNumber.matches(MOBILE_PATTERN);
     }
 }
