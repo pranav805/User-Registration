@@ -130,4 +130,17 @@ public class UserValidationTest {
         boolean result = userValidator.validatePasswordRule2("pranavige");
         Assert.assertEquals(false, result);
     }
+
+//    Test cases for Password (Rule 3)
+    @Test
+    public void givenPasswordRule3_WhenProper_ShouldReturnTrue() {
+        boolean result = userValidator.validatePasswordRule3("PranavIge804");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordRule3_WhenNoNumericNumber_ShouldReturnFalse() {
+        boolean result = userValidator.validatePasswordRule3("PranavVitthalIge");
+        Assert.assertEquals(false, result);
+    }
 }

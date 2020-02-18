@@ -29,6 +29,9 @@ public class UserValidator {
 //    Pattern for Password Rule 2: At least 1 upper case
     private final String PASSWORD_PATTERN_RULE2="(?=.*[A-Z]).[A-Za-z]{7,}$";
 
+    private final String PASSWORD_PATTERN_RULE3="((?=.*\\d)(?=.*[A-Z])[A-Za-z].{6,})";
+
+
     public boolean validateFirstName(String fName){
         return fName.matches(NAME_PATTERN);
     }
@@ -51,5 +54,9 @@ public class UserValidator {
 
     public boolean validatePasswordRule2(String password2) {
         return password2.matches(PASSWORD_PATTERN_RULE2);
+    }
+
+    public boolean validatePasswordRule3(String password3) {
+        return password3.matches(PASSWORD_PATTERN_RULE3);
     }
 }
